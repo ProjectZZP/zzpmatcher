@@ -24,8 +24,8 @@ public class MatcherApplication {
 		SpringApplication.run(MatcherApplication.class, args);
 	}
 
-    @RequestMapping(value = "findProposals", method = RequestMethod.GET)
-    public List<String> getProposals(String profileId) {
+    @RequestMapping(value = "findProposals", method = { RequestMethod.GET, RequestMethod.OPTIONS })
+    public List<String> findProposals(String profileId) {
         if (StringUtils.isBlank(profileId)) {
             throw  new IllegalArgumentException("Profile ID should not be empty");
         }
